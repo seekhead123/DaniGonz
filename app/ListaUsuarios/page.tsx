@@ -3,7 +3,7 @@ import UsersList from "@/src/components/users-lists";
 import { FC, useEffect, useState } from "react";
 
 export interface Usuario {
-  id: number;
+  id?: number;
   nombre: string;
   email: string;
 }
