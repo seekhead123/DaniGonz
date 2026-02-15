@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS areas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    supervisor_id INTEGER,
+    FOREIGN KEY (supervisor_id) REFERENCES empleados(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS empleados (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombres TEXT NOT NULL,
+    apellidos TEXT NOT NULL,
+    correo TEXT NOT NULL UNIQUE,
+    rut TEXT NOT NULL UNIQUE,
+    area_id INTEGER,
+    FOREIGN KEY (area_id) REFERENCES areas(id) ON DELETE SET NULL
+);
